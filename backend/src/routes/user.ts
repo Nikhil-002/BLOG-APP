@@ -44,12 +44,12 @@ userRouter.post('/signup', async(c) => {
       });
       console.log("check 3");
       const jwt = await sign({id: user.id}, c.env.JWT_SECRET)
+      return c.text(jwt)
     }
     catch(e) {
       c.status(400)
       return c.json({error : "User already exist with this Email"})
     }
-    return c.text('SignUp')
   })
   
   
@@ -77,5 +77,5 @@ userRouter.post('/signup', async(c) => {
       return c.json({error : "User not found"})
     }
     const jwt = await sign({id:user.id},c.env.JWT_SECRET)
-    return c.json({jwt})
+    return c.text(jwt)
   })
