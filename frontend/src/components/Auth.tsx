@@ -53,23 +53,23 @@ export const Auth = ({type} : {type : "signup" | "signin"}) => {
                                 name: e.target.value
                             })
                         }} /> : null}
-                        {type === "signup" ? <LabelledInput label="Email" placeholder="John Doe" onChange={(e)=>{
+                        {type === "signup" ? <LabelledInput label="Email" placeholder="John@gmail.com" onChange={(e)=>{
                             setSignupInputs({
                                 ...signupInputs,
                                 email: e.target.value
                             })
-                        }} /> : <LabelledInput label="Email" placeholder="John Doe" onChange={(e)=>{
+                        }} /> : <LabelledInput label="Email" placeholder="John@gmail.com" onChange={(e)=>{
                             setSigninInputs({
                                 ...signinInputs,
                                 email: e.target.value
                             })
                         }} />}
-                        {type === "signup" ? <LabelledInput label="Password" type="password" placeholder="John Doe" onChange={(e)=>{
+                        {type === "signup" ? <LabelledInput label="Password" type="password" placeholder="1234567" onChange={(e)=>{
                             setSignupInputs({
                                 ...signupInputs,
                                 password: e.target.value
                             })
-                        }} /> : <LabelledInput label="Password" type="password" placeholder="John Doe" onChange={(e)=>{
+                        }} /> : <LabelledInput label="Password" type="password" placeholder="1234567" onChange={(e)=>{
                             setSigninInputs({
                                 ...signinInputs,
                                 password: e.target.value
