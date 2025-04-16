@@ -21,6 +21,13 @@ export const Publish = () => {
                         setContent(e.target.value)
                     }} id="message" rows={10} className=" focus: outline-none block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 " placeholder="Write your blog here..."></textarea>  
                     <div className="flex justify-center">
+                    {(title === "" || content === "") ? 
+                    <button type="submit" className="cursor-not-allowed
+ inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 mt-2">
+
+                    Publish post
+                    </button>
+                     :
                     <button onClick={async() =>{
                         const response = await axios.post(`${BACKEND_URL}/api/v1/blog`, {
                             title,
@@ -31,11 +38,11 @@ export const Publish = () => {
                             }
                         })
                         console.log(response.data.id);
-                        
                         navigate(`/blog/${response.data.id}`)
-                    }} type="submit" className="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 mt-2">
+                    }} type="submit" className="cursor-pointer inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 mt-2">
+
                     Publish post
-                    </button>    
+                    </button>    }
                     </div>  
                 </div>
             </div>
